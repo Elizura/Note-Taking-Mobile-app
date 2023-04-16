@@ -27,11 +27,13 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
-dependencies:
+dependencies:  
+  bloc: ^8.0.0
+  flutter_bloc: ^8.1.1
   either_dart: ^0.3.0
   equatable: ^2.0.0
   flutter:
-    sdk: flutter  
+    sdk: flutter      
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,6 +42,7 @@ dependencies:
   freezed_annotation: ^2.2.0
 
 dev_dependencies:
+  bloc_test: ^9.1.0
   flutter_test:
     sdk: flutter  
 
