@@ -28,6 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:  
+  injectable:
+  get_it:
   bloc: ^8.0.0
   flutter_bloc: ^8.1.1
   either_dart: ^0.3.0
@@ -42,6 +44,7 @@ dependencies:
   freezed_annotation: ^2.2.0
 
 dev_dependencies:
+  injectable_generator:   
   bloc_test: ^9.1.0
   flutter_test:
     sdk: flutter  

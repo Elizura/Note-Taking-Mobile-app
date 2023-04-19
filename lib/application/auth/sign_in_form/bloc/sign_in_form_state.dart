@@ -1,23 +1,43 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'sign_in_form_bloc.dart';
 
-@freezed
-class SignInFormState with _$SignInFormState {
-  const factory SignInFormState.initial() = _Initial;
+class SignInFormState extends Equatable {
+  const SignInFormState(
+    this.emailAddress,
+    this.password,
+    this.showErrorMessage,
+    this.isSubmitting,
+    this.authFailureOrSucess,
+  );
 
-  const factory SignInFormState({
-    required EmailAddress emailAddress,
-    required Password password,
-    required bool showErrorMessage,
-    required bool isSubmitting,
-    required String authFailureOrSucess,
-  }) = _SignInFormState;
+  final EmailAddress emailAddress;
+  final Password password;
+  final bool showErrorMessage;
+  final bool isSubmitting;
+  final String authFailureOrSucess;
 
-  factory SignInFormState._initial() {
+  @override
+  List<Object> get props => [
+        emailAddress,
+        password,
+        showErrorMessage,
+        isSubmitting,
+        authFailureOrSucess
+      ];
+
+  SignInFormState copyWith({
+    EmailAddress? emailAddress,
+    Password? password,
+    bool? showErrorMessage,
+    bool? isSubmitting,
+    String? authFailureOrSucess,
+  }) {
     return SignInFormState(
-        authFailureOrSucess: '',
-        emailAddress: EmailAddress(''),
-        password: Password(''),
-        showErrorMessage: false,
-        isSubmitting: false);
+      emailAddress ?? this.emailAddress,
+      password ?? this.password,
+      showErrorMessage ?? this.showErrorMessage,
+      isSubmitting ?? this.isSubmitting,
+      authFailureOrSucess ?? this.authFailureOrSucess,
+    );
   }
 }
