@@ -15,7 +15,9 @@ part 'sign_in_form_state.dart';
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final IAuthFacade _authFacade;
-  SignInFormBloc(this._authFacade) : super(const SignInFormState()) {
+  SignInFormBloc(this._authFacade)
+      : super(
+            SignInFormState(EmailAddress(''), Password(''), false, false, '')) {
     on<EmailChanged>(_onEmailChange);
     on<PasswordChanged>(_onPasswordChange);
     // on<RegisterWithEmailAndPasswordPressed>(
@@ -32,12 +34,30 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     return emit(
         state.copyWith(password: Password(event.passwordstr as String)));
   }
-}
-  // void _onRegisterWithEmailAndPasswordPressed(
-  //     PasswordChanged event, Emitter emit) {
-  //   return _performActionOnAuthFacadeWithEmailAndPassword()
-  // }
 
+  _onRegisterWithEmailAndPasswordPressed(
+      PasswordChanged event, Emitter emit) async* {
+    final isEmailValid = state.emailAddress.isValid();
+    final isPasswordValid = state.password.isValid();
+    if (isEmailValid && isPasswordValid) {
+      yield state.copyWith(
+        isSubmitting: true,
+        authFailureOrSucess: '',
+      );
+      final failureOrSuccess = await _authFacade.registerWithEmailAndPassword(
+          emailAddress: state.emailAddress, password: state.password);
+
+      // yield state.copyWith(
+      //   isSubmitting: false,
+      //   authFailureOrSucess:
+      // );
+    }
+  }
+}
+// void _onRegisterWithEmailAndPasswordPressed(
+//     PasswordChanged event, Emitter emit) {
+//   return _performActionOnAuthFacadeWithEmailAndPassword()
+// }
 
 //   Stream<SignInFormState> _performActionOnAuthFacadeWithEmailAndPassword(
 //     Future<Either<AuthFailure, Unit>> Function({
@@ -68,6 +88,5 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 //       authFailureOrSuccessOption: optionOf(failureOrSuccess),
 //     );
 //   }
-
 
 // }
