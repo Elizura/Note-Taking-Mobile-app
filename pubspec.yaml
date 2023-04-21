@@ -28,11 +28,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:  
+  dartz: ^0.10.1
   injectable:
   get_it:
   bloc: ^8.0.0
-  flutter_bloc: ^8.1.1
-  either_dart: ^0.3.0
+  flutter_bloc: ^8.1.1  
   equatable: ^2.0.0
   flutter:
     sdk: flutter      

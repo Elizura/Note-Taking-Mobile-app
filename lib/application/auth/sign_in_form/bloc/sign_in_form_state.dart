@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'sign_in_form_bloc.dart';
 
 class SignInFormState extends Equatable {
@@ -14,7 +13,7 @@ class SignInFormState extends Equatable {
   final Password password;
   final bool showErrorMessage;
   final bool isSubmitting;
-  final String authFailureOrSucess;
+  final Option<Either<AuthFailure, Unit>> authFailureOrSucess;
 
   @override
   List<Object> get props => [
@@ -30,7 +29,7 @@ class SignInFormState extends Equatable {
     Password? password,
     bool? showErrorMessage,
     bool? isSubmitting,
-    String? authFailureOrSucess,
+    Option<Either<AuthFailure, Unit>>? authFailureOrSucess,
   }) {
     return SignInFormState(
       emailAddress ?? this.emailAddress,
