@@ -67,8 +67,20 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         showErrorMessage: true,
         authFailureOrSucess: none()));
   }
-  void _onSignInWithGooglePressed(SignInWithGooglePressed event, Emittable emit){
-   final isEmailValid = state.emailAddress.isValid();
-   final isPasswordValid 
+
+  void _onSignInWithGooglePressed(
+      SignInWithGooglePressed event, Emitter emit) async {
+    final isEmailValid = state.emailAddress.isValid();
+    final isPasswordValid = state.password.isValid();
+    if (isEmailValid && isPasswordValid) {
+      emit(state.copyWith(isSubmitting: true, authFailureOrSucess: none()));
+      final failureOrSuccess = await _authFacade.signInWithGoogle();
+      emit(state.copyWith(
+          isSubmitting: false, authFailureOrSucess: some(failureOrSuccess)));
+    }
+    emit(state.copyWith(
+        isSubmitting: false,
+        showErrorMessage: true,
+        authFailureOrSucess: none()));
   }
 }

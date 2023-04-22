@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "421436243771",
+    "project_id": "note-taker-a88fd",
+    "storage_bucket": "note-taker-a88fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421436243771:android:b8b09bb16977744c25011e",
+        "android_client_info": {
+          "package_name": "com.example.flutternotetaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421436243771-bqf8t0aoohvs6jp4ifje5sns0eeh272q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutternotetaker",
+            "certificate_hash": "9aa44b4fecd428ebe02c4ffd6570467295109a0b"
+          }
+        },
+        {
+          "client_id": "421436243771-jb7q0j4apnvtkv2el54o9o09gaqdsdbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALxfr_1YxvNMLC9f4McGjeSLG4x7HqIzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421436243771-jb7q0j4apnvtkv2el54o9o09gaqdsdbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
