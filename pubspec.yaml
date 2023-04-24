@@ -29,9 +29,10 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:  
   dartz: ^0.10.1
-  injectable:
-  get_it:
+  injectable: ^2.1.1
+  get_it: ^7.2.0
   bloc: ^8.0.0
+  json_annotation: ^4.4.0
   flutter_bloc: ^8.1.1  
   equatable: ^2.0.0
   flutter:
@@ -39,6 +40,7 @@ dependencies:
   firebase_core: ^2.10.0
   firebase_auth: ^4.4.2
   google_sign_in: ^6.1.0
+  provider: ^6.0.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,7 +49,8 @@ dependencies:
   freezed_annotation: ^2.2.0
 
 dev_dependencies:
-  injectable_generator:   
+  lint: ^2.0.0
+  injectable_generator: ^2.1.5 
   bloc_test: ^9.1.0
   flutter_test:
     sdk: flutter  
