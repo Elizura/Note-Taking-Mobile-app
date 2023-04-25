@@ -9,6 +9,9 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SignInForm();
+    return BlocProvider(
+      create: (context) => getIt<SignInFormBloc>(),
+      child: SignInForm(),
+    );
   }
 }

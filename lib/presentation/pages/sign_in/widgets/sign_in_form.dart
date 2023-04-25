@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutternotetaker/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 
 import 'constants.dart';
 
@@ -7,29 +8,36 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Sign in',
-      home: Scaffold(
-        body: Container(
-          padding: EdgeInsets.fromLTRB(150, 100, 100, 0),
-          child: Column(children: [
-            const Text(
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                'HELLO AGAIN!'),
-            const Text('Welcome back you\'ve been missed'),
-            const SizedBox(
-              height: 20,
+    return BlocConsumer<SignInFormBloc, SignInFormBloc>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return MaterialApp(
+          title: 'Sign in',
+          home: Scaffold(
+            body: Container(
+              padding: EdgeInsets.fromLTRB(150, 100, 100, 0),
+              child: Column(children: [
+                const Text(
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    'HELLO AGAIN!'),
+                const Text('Welcome back you\'ve been missed'),
+                const SizedBox(
+                  height: 20,
+                ),
+                EmailInputFb1(
+                  inputController: TextEditingController(),
+                ),
+                PasswordInput(),
+                GoogleBtn1(
+                  onPressed: () {},
+                )
+              ]),
             ),
-            EmailInputFb1(
-              inputController: TextEditingController(),
-            ),
-            PasswordInput(),
-            GoogleBtn1(
-              onPressed: () {},
-            )
-          ]),
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -112,7 +120,7 @@ class _PasswordInputState extends State<PasswordInput> {
             const EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
         hintText: 'Enter your password',
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.red,
             width: 1,
           ),
