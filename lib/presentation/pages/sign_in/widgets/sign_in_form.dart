@@ -9,40 +9,37 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SignInFormBloc(),
-      child: MaterialApp(
-        title: 'Sign in',
-        home: Scaffold(
-          body: Container(
-            padding: EdgeInsets.fromLTRB(150, 100, 100, 0),
-            child: Column(children: [
-              const Text(
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                  'HELLO AGAIN!'),
-              const Text('Welcome back you\'ve been missed'),
-              const SizedBox(
-                height: 20,
-              ),
-              EmailInputFb1(
-                inputController: TextEditingController(),
-              ),
-              PasswordInput(),
-              SizedBox(height: 10),
-              const Row(
-                children: [
-                  InvertedButtonFb2(text: 'Sign In'),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  InvertedButtonFb2(text: 'Sign Up')
-                ],
-              ),
-              GoogleBtn1(
-                onPressed: () {},
-              )
-            ]),
-          ),
+    return MaterialApp(
+      title: 'Sign in',
+      home: Scaffold(
+        body: Container(
+          padding: EdgeInsets.fromLTRB(150, 100, 100, 0),
+          child: Column(children: [
+            const Text(
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                'HELLO AGAIN!'),
+            const Text('Welcome back you\'ve been missed'),
+            const SizedBox(
+              height: 20,
+            ),
+            EmailInputFb1(
+              inputController: TextEditingController(),
+            ),
+            PasswordInput(),
+            SizedBox(height: 10),
+            const Row(
+              children: [
+                InvertedButtonFb2(text: 'Sign In'),
+                SizedBox(
+                  width: 30,
+                ),
+                InvertedButtonFb2(text: 'Sign Up')
+              ],
+            ),
+            GoogleBtn1(
+              onPressed: () {},
+            )
+          ]),
         ),
       ),
     );
