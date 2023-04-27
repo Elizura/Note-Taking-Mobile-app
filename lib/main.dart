@@ -6,5 +6,14 @@ import 'injection.dart';
 
 void main() {
   configureInjection(Environment.prod);
-  runApp(AppWidget());
+  runApp(MyWidget());
+}
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
 }

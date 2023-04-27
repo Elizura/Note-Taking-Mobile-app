@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutternotetaker/application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../application/auth/sign_in_form/bloc/sign_in_form_bloc.dart';
 import 'constants.dart';
 
 class SignInForm extends StatelessWidget {
@@ -8,36 +9,39 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignInFormBloc, SignInFormBloc>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
-      builder: (context, state) {
-        return MaterialApp(
-          title: 'Sign in',
-          home: Scaffold(
-            body: Container(
-              padding: EdgeInsets.fromLTRB(150, 100, 100, 0),
-              child: Column(children: [
-                const Text(
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                    'HELLO AGAIN!'),
-                const Text('Welcome back you\'ve been missed'),
-                const SizedBox(
-                  height: 20,
-                ),
-                EmailInputFb1(
-                  inputController: TextEditingController(),
-                ),
-                PasswordInput(),
-                GoogleBtn1(
-                  onPressed: () {},
-                )
-              ]),
+    return MaterialApp(
+      title: 'Sign in',
+      home: Scaffold(
+        body: Container(
+          padding: EdgeInsets.fromLTRB(150, 100, 100, 0),
+          child: Column(children: [
+            const Text(
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                'HELLO AGAIN!'),
+            const Text('Welcome back you\'ve been missed'),
+            const SizedBox(
+              height: 20,
             ),
-          ),
-        );
-      },
+            EmailInputFb1(
+              inputController: TextEditingController(),
+            ),
+            PasswordInput(),
+            SizedBox(height: 10),
+            const Row(
+              children: [
+                InvertedButtonFb2(text: 'Sign In'),
+                SizedBox(
+                  width: 30,
+                ),
+                InvertedButtonFb2(text: 'Sign Up')
+              ],
+            ),
+            GoogleBtn1(
+              onPressed: () {},
+            )
+          ]),
+        ),
+      ),
     );
   }
 }
@@ -197,6 +201,34 @@ class EmailInputFb1 extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class InvertedButtonFb2 extends StatelessWidget {
+  final String text;
+  // final Function() onPressed;
+  const InvertedButtonFb2({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    const primaryColor = Color(0xff4338CA);
+
+    return OutlinedButton(
+      style: ButtonStyle(
+        alignment: Alignment.center,
+        side: MaterialStateProperty.all(const BorderSide(color: primaryColor)),
+        padding: MaterialStateProperty.all(
+            const EdgeInsets.only(right: 50, left: 50, top: 10, bottom: 10)),
+        backgroundColor: MaterialStateProperty.all(Colors.transparent),
+        // shape: MaterialStateProperty.all(RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(15.0)))),
+      ),
+      onPressed: () {},
+      child: Text(
+        text,
+        style: const TextStyle(color: primaryColor, fontSize: 16),
+      ),
     );
   }
 }
